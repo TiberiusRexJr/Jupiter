@@ -1,0 +1,9 @@
+C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\Jupiter.dll.config
+C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\Jupiter.dll
+C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\Jupiter.pdb
+C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\rouni\Desktop\Jupiter\Jupiter\obj\Debug\Jupiter.csproj.CoreCompileInputs.cache
+C:\Users\rouni\Desktop\Jupiter\Jupiter\obj\Debug\Jupiter.csproj.CopyComplete
+C:\Users\rouni\Desktop\Jupiter\Jupiter\obj\Debug\Jupiter.dll
+C:\Users\rouni\Desktop\Jupiter\Jupiter\obj\Debug\Jupiter.pdb

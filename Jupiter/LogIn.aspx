@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <asp:Label runat="server" CssClass="col-md-2 control-label" >Email</asp:Label>
                     <div class="col-md-3">
-                    <asp:TextBox runat="server" ID="TextBoxEmail" placeholder="Email" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="TextBoxEmail" placeholder="Email"  CssClass="form-control"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TextBoxEmail" runat="server" ErrorMessage="Email is Required" CssClass="text-danger"></asp:RequiredFieldValidator>
 
                     </div>
                     </div>
@@ -18,7 +18,7 @@
                     <asp:Label runat="server" CssClass="col-md-2 control-label">Password</asp:Label>
                     <div class="col-md-3">
                     <asp:TextBox runat="server" placeholder="Password" ID="TextBoxPassword" CssClass="form-control"></asp:TextBox>
-
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" class="text-danger" runat="server" ErrorMessage="Password is Required" ControlToValidate="TextBoxPassword"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="form-group">

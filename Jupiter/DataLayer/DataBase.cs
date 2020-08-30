@@ -199,6 +199,10 @@ namespace Jupiter.DataLayer
             }
             #endregion
         }
+        public bool Validate(string userEmail, string password)
+        {
+            throw new NotImplementedException();
+        }
         public string Update(Worker worker)
         {
             #region Variables
