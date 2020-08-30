@@ -16,10 +16,11 @@
     
 </head>
 <body>
-    
+    <div style="margin:5%">
+
      <asp:ContentPlaceHolder ID="NavBar" runat="server">
           <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+            <div class="container" style="margin-top:5%">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
@@ -59,24 +60,26 @@
         </div>
 
     </asp:ContentPlaceHolder>
-        <div>
+    </div>
+        
 
-              
+        <div style="margin:5% 20% 5% 20%">
+
             <asp:ContentPlaceHolder ID="PageContent" runat="server">
           
             </asp:ContentPlaceHolder>
+        </div>
+    <div style="margin:5%">
+
             <asp:ContentPlaceHolder ID="Footer" runat="server">
            <footer>
-            <div class="container">
+            <div class="container" style="margin-top:20%">
                 <div class="pull-right"><p><a href="#">Back to the Top</a></p></div>
                 <p>&copy;2020 E-Tech.com &middot;<a href="default.aspx">Home</a>&middot<a href="default.aspx">About</a></p>
             </div>
         </footer>
             </asp:ContentPlaceHolder>
-          
-        </div>
-         
-   
+    </div>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
 </body>

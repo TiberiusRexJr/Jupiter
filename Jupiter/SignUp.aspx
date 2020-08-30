@@ -2,8 +2,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="PageContent" runat="server">
     
-
-   <div class="container" style="margin-top:10%">
        <p class="col-lg-10">Sign Up</p>
        <form id="FormSignUp" runat="server">
            <asp:Label ID="LabelWarningMessage" runat="server"></asp:Label>
@@ -23,6 +21,5 @@
 
        </form>
 
-   </div>
     
 </asp:Content>
