@@ -199,26 +199,41 @@ namespace Jupiter.DataLayer
             }
             #endregion
         }
-        public bool Validate(string userEmail, string password)
+        public bool Validate(string userEmail, string userPassword)
         {
             #region Variables
             string response = string.Empty;
+            bool validUser = false;
             int queryCode = 6;
             SqlCommand cmd = new SqlCommand(ProcedureCRUD,DbConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = cmd;
+            DataSet data = new DataSet();
 
             #endregion
+            #region Parameters
+            cmd.Parameters.AddWithValue("@email", userEmail);
+            cmd.Parameters.AddWithValue("@password", userPassword);
+            cmd.Parameters.AddWithValue("@query", queryCode);
+            #endregion
+            #region TryExecute
             try
             {
                 DbConnection.Open();
-
+                int rowcount=cmd.ExecuteNonQuery();
+                if (rowcount != 0)
+                {
+                    validUser = true;
+                
+                }    
             }
             catch (Exception e)
             {
                 response = e.Message.ToString();
             }
-            throw new NotImplementedException();
+            return validUser;
+            #endregion
         }
         public string Update(Worker worker)
         {
