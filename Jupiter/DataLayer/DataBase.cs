@@ -201,6 +201,23 @@ namespace Jupiter.DataLayer
         }
         public bool Validate(string userEmail, string password)
         {
+            #region Variables
+            string response = string.Empty;
+            int queryCode = 6;
+            SqlCommand cmd = new SqlCommand(ProcedureCRUD,DbConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            #endregion
+            try
+            {
+                DbConnection.Open();
+
+            }
+            catch (Exception e)
+            {
+                response = e.Message.ToString();
+            }
             throw new NotImplementedException();
         }
         public string Update(Worker worker)

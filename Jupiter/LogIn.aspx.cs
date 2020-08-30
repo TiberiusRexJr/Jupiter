@@ -11,7 +11,7 @@ namespace Jupiter
     
     public partial class LogIn : System.Web.UI.Page
     {
-        Database db = new Database();
+        DataBase db = new DataBase();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,7 +22,7 @@ namespace Jupiter
             string userEmail = TextBoxEmail.Text;
             string password = TextBoxEmail.Text;
 
-            db.
+            db.RetrieveById
 
 
         }
