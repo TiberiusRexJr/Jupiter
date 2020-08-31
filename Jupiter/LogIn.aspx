@@ -32,6 +32,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-6">
             <asp:Button runat="server" ID="ButtonEnter"  CssClass="btn btn-success btn-lg" OnClick="ButtonEnter_Click" Text="Enter"/>
+                <asp:HyperLink runat="server" NavigateUrl="~/SignUp.aspx"></asp:HyperLink>
 
             </div>
 

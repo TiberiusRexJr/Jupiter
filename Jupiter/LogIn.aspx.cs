@@ -14,10 +14,16 @@ namespace Jupiter
         DataBase db = new DataBase();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"]!=null)
+            if (!IsPostBack)
             {
-                TextBoxEmail.Text = Session["email"].ToString();
+                if (Request.Cookies["USR"].Value != null && Request.Cookies["PWD"].Value != null)
+                {
+                    TextBoxEmail.Text = Request.Cookies["USR"].Value;
+                    TextBoxPassword.Attributes["value"] = Request.Cookies["PWD"].Value;
+                    CheckBoxRememberPassword.Checked = true;
+                }
             }
+           
             /*if (Session["password"] != null)
             {
                 TextBoxPassword.Text = Session["password"].ToString();
@@ -39,11 +45,23 @@ namespace Jupiter
 
                 if (CheckBoxRememberPassword.Checked)
                 {
+                    Response.Cookies["PWD"].Value = TextBoxPassword.Text;
+                    Response.Cookies["PWD"].Expires = DateTime.Now.AddDays(7);
+                    Response.Cookies["USR"].Value = TextBoxEmail.Text;
+                    Response.Cookies["USR"].Expires = DateTime.Now.AddDays(7);
+
                     Session["email"] = worker.Email;
                     Session["password"] = worker.Password;
                     Session["firstName"] = worker.FirstName;
                     Session["lastName"] = worker.LastName;
                 }
+                else
+                {
+                    Response.Cookies["PWD"].Value = null;
+                    /* Response.Cookies["USR"].Expires = DateTime.Now.AddDays(-1);*/
+                    Response.Cookies["USR"].Value = null;
+                }
+            }
 
 
 
@@ -64,4 +82,3 @@ namespace Jupiter
 
         }
     }
-}
