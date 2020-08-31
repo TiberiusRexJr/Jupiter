@@ -23,6 +23,7 @@ namespace Jupiter
 
         protected void Button_OnClick_Submit(object sender,EventArgs eventArgs)
         {
+            bool response;
             if (TextBoxFirstName != null && TextBoxLastName != null && TextBoxEmail.Text != null && TextBoxPassword.Text != null && TextBoxConfirmPassword != null)
             {
                 TextBoxFirstName.BorderColor = System.Drawing.Color.Empty;
@@ -37,12 +38,21 @@ namespace Jupiter
                 if (TextBoxPassword.Text == TextBoxConfirmPassword.Text)
                 {
                     Worker worker = new Worker { FirstName = TextBoxFirstName.Text, LastName = TextBoxLastName.Text, Email = TextBoxEmail.Text, Password = TextBoxPassword.Text };
-                    string response = db.Create(worker);
-                    LabelWarningMessage.Text ="Welcome!"+worker.FirstName+"!";
-                    LabelWarningMessage.ForeColor = System.Drawing.Color.Green;
+                    if (response = db.Create(worker))
+                    {
+                        LabelWarningMessage.Text = "Welcome!" + worker.FirstName + "!"+response.ToString();
+                        LabelWarningMessage.ForeColor = System.Drawing.Color.Green;
 
-                    TextBoxPassword.BorderColor = System.Drawing.Color.Empty;
-                    TextBoxConfirmPassword.BorderColor = System.Drawing.Color.Empty;
+                        TextBoxPassword.BorderColor = System.Drawing.Color.Empty;
+                        TextBoxConfirmPassword.BorderColor = System.Drawing.Color.Empty;
+                    }
+                    else
+                    {
+                        LabelWarningMessage.Text = "That Email is already in use!"+response.ToString();
+                        TextBoxEmail.BorderColor = System.Drawing.Color.Red;
+                    }
+
+                    
 
                     /*Response.Redirect("Login.aspx");*/
                 }

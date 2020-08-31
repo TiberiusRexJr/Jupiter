@@ -4,7 +4,7 @@
     
        <p class="col-lg-10">Sign Up</p>
        <form id="FormSignUp" runat="server">
-           <asp:Label ID="LabelWarningMessage" runat="server"></asp:Label>
+           
            <label class="col-xs-11">First Name:</label>
            <asp:TextBox ID="TextBoxFirstName" runat="server" CssClass="form-control" placeholder="First Name"></asp:TextBox>
            <label  class="col-xs-11">Last Name:</label>
@@ -17,7 +17,7 @@
             <asp:TextBox ID="TextBoxConfirmPassword" runat="server" CssClass="form-control" placeholder="Confirm Password"></asp:TextBox>
            <br />
            <asp:Button runat="server" Text="Submit" CssClass="btn btn-success btn-lg" OnClick="Button_OnClick_Submit" ID="Button_Submit" />
-           
+           <asp:Label ID="LabelWarningMessage" runat="server" Text=" " CssClass="text-warning"></asp:Label>
 
        </form>
 

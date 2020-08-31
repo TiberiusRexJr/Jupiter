@@ -63,11 +63,12 @@ namespace Jupiter.DataLayer
 
         }
 
-        public string Create(Worker worker)
+        public bool Create(Worker worker)
         {
             #region Variables
             int queryCode = 1;
-            string result = string.Empty;
+            bool IsEmailAvaliable=false;
+            bool SuccessFullEntry = false;
             SqlCommand command = new SqlCommand(ProcedureCRUD, DbConnection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
             #endregion
@@ -81,22 +82,31 @@ namespace Jupiter.DataLayer
             #region TryExecuteCatch
             try
             {
-                DbConnection.Open();
-                result = command.ExecuteScalar().ToString();
-                return result;
+               
+                if (IsEmailAvaliable = ValidateEmail(worker.Email))
+                {
+                    DbConnection.Open();
+                    var resultSet = command.ExecuteScalar();
+                    if (resultSet != null)
+                    {
+                        SuccessFullEntry = true;
+                    }
+                }
+               /* result = command.ExecuteScalar().ToString();
+                return result;*/
 
             }
             catch (Exception e)
             {
-                result = e.Message;
-                return result;
+                /*result = e.Message;
+                return result;*/
             }
             finally
             {
                 DbConnection.Close();
             }
             #endregion
-            
+            return SuccessFullEntry;
         }
         public List<Worker> RetrieveAll()
         {
@@ -161,7 +171,7 @@ namespace Jupiter.DataLayer
             }
             #endregion
         }
-        public Worker RetrieveById(int id)
+        public Worker RetrieveByEmail(string userEmail)
         {
             #region Variables
             Worker worker=new Worker();
@@ -174,13 +184,14 @@ namespace Jupiter.DataLayer
             sqlDataAdapter.SelectCommand = cmd;
             #endregion
             #region AddParameters
-            cmd.Parameters.AddWithValue("@Id",id);
+            cmd.Parameters.AddWithValue("@email",userEmail);
             cmd.Parameters.AddWithValue("@query", queryCode);
             #endregion
             #region ExecuteTryCatchFinally
             try
             {
                 DbConnection.Open();
+
                 sqlDataAdapter.Fill(dataSet);
                 for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
@@ -197,8 +208,13 @@ namespace Jupiter.DataLayer
                 worker.FirstName = e.Message;
                 return worker;
             }
+            finally
+            {
+                DbConnection.Close();
+            }
             #endregion
         }
+
         public bool Validate(string userEmail, string userPassword)
         {
             #region Variables
@@ -207,9 +223,8 @@ namespace Jupiter.DataLayer
             int queryCode = 6;
             SqlCommand cmd = new SqlCommand(ProcedureCRUD,DbConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            sqlDataAdapter.SelectCommand = cmd;
-            DataSet data = new DataSet();
+            
+            
 
             #endregion
             #region Parameters
@@ -221,19 +236,57 @@ namespace Jupiter.DataLayer
             try
             {
                 DbConnection.Open();
-                int rowcount=cmd.ExecuteNonQuery();
-                if (rowcount != 0)
+                var result=cmd.ExecuteScalar();
+                if (result != null)
                 {
                     validUser = true;
-                
-                }    
+                }
             }
             catch (Exception e)
             {
                 response = e.Message.ToString();
             }
+            finally 
+            {
+                DbConnection.Close();
+            }
             return validUser;
             #endregion
+        }
+        public bool ValidateEmail(string userEmail)
+        {
+            #region variables
+            string error = string.Empty;
+            bool EmailAvaliable = true;
+            SqlCommand sqlCommand = new SqlCommand(ProcedureCRUD, DbConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            int query = 7;
+            #endregion
+            #region parameters
+            sqlCommand.Parameters.AddWithValue("@email", userEmail);
+            sqlCommand.Parameters.AddWithValue("@query", query);
+            #endregion
+            #region TryExecute
+            try
+            {
+                DbConnection.Open();
+                var response = sqlCommand.ExecuteScalar();
+                if (response != null)
+                {
+                    EmailAvaliable = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+                error = e.Message.ToString();
+            }
+            finally
+            {
+                DbConnection.Close();
+            }
+            #endregion
+            return EmailAvaliable;
         }
         public string Update(Worker worker)
         {

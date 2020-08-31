@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Jupiter.DataLayer;
+using Jupiter.Models;
 
 namespace Jupiter
 {
@@ -18,8 +19,30 @@ namespace Jupiter
 
         protected void ButtonEnter_Click(object sender, EventArgs e)
         {
-            bool validation=db.Validate(TextBoxEmail.Text, TextBoxPassword.Text);
-            LabelWarning.Text = validation.ToString();
+            bool valid = db.Validate(TextBoxEmail.Text, TextBoxPassword.Text);
+            if (!valid)
+            {
+                LabelWarning.Text = "Invalid Credentials!";
+
+            }
+            else
+            {
+                Worker worker = db.RetrieveByEmail(TextBoxEmail.Text);
+                LabelWarning.Text = "Welcome" +worker.FirstName;
+                Response.Redirect("default.aspx");
+            }
+            /*   if (db.ValidateEmail(TextBoxEmail.Text))
+               {
+                   LabelWarning.Text = "duh";
+
+               }
+               else
+               {
+                   LabelWarning.Text = "fuck";
+
+               }*/
+
+
         }
     }
 }
