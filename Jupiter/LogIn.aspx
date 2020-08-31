@@ -17,7 +17,7 @@
        <div class="form-group">
              <asp:Label CssClass="col-md-2 control-label" runat="server">Password</asp:Label>
             <div class="col-md-3">
-                <asp:TextBox runat ="server" CssClass="form-control" ID="TextBoxPassword"></asp:TextBox>
+                <asp:TextBox runat ="server" CssClass="form-control" ID="TextBoxPassword" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxPassword" ErrorMessage="Required Field" CssClass="text-danger"></asp:RequiredFieldValidator>
 
             </div>

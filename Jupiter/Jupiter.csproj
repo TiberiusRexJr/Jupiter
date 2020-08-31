@@ -85,6 +85,7 @@
     <Content Include="LogIn.aspx" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\JupiterJazz.pubxml" />
     <None Include="scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="scripts\jquery-3.4.1.js" />
     <Content Include="scripts\jquery-3.4.1.min.js" />

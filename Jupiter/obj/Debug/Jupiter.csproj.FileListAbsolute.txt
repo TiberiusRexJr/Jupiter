@@ -7,7 +7,6 @@ C:\Users\rouni\Desktop\Jupiter\Jupiter\obj\Debug\Jupiter.csproj.CoreCompileInput
 C:\Users\rouni\Desktop\Jupiter\Jupiter\obj\Debug\Jupiter.csproj.CopyComplete
 C:\Users\rouni\Desktop\Jupiter\Jupiter\obj\Debug\Jupiter.dll
 C:\Users\rouni\Desktop\Jupiter\Jupiter\obj\Debug\Jupiter.pdb
-C:\Users\rouni\Desktop\j\Jupiter\Jupiter\obj\Debug\Jupiter.csprojAssemblyReference.cache
 C:\Users\rouni\Desktop\j\Jupiter\Jupiter\obj\Debug\Jupiter.csproj.CoreCompileInputs.cache
 C:\Users\rouni\Desktop\j\Jupiter\Jupiter\obj\Debug\Jupiter.dll
 C:\Users\rouni\Desktop\j\Jupiter\Jupiter\obj\Debug\Jupiter.pdb

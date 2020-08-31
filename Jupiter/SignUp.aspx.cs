@@ -40,11 +40,18 @@ namespace Jupiter
                     Worker worker = new Worker { FirstName = TextBoxFirstName.Text, LastName = TextBoxLastName.Text, Email = TextBoxEmail.Text, Password = TextBoxPassword.Text };
                     if (response = db.Create(worker))
                     {
+                        Session["firstName"] = worker.FirstName;
+                        Session["lastName"] = worker.LastName;
+                        Session["email"] = worker.Email;
+                        Session["password"] = worker.Password;
+
                         LabelWarningMessage.Text = "Welcome!" + worker.FirstName + "!"+response.ToString();
                         LabelWarningMessage.ForeColor = System.Drawing.Color.Green;
 
                         TextBoxPassword.BorderColor = System.Drawing.Color.Empty;
                         TextBoxConfirmPassword.BorderColor = System.Drawing.Color.Empty;
+
+                        Response.Redirect("Login.aspx");
                     }
                     else
                     {
