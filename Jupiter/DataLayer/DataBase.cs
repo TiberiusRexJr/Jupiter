@@ -199,6 +199,7 @@ namespace Jupiter.DataLayer
                     worker.FirstName = dataSet.Tables[0].Rows[i]["FirstName"].ToString();
                     worker.Email = dataSet.Tables[0].Rows[i]["Email"].ToString();
                     worker.Password = dataSet.Tables[0].Rows[i]["Psword"].ToString();
+                    worker.UserType = dataSet.Tables[0].Rows[i]["UserType"].ToString();
                 }
                 return worker;
 
