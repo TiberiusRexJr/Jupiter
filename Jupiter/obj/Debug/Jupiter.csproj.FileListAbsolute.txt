@@ -115,3 +115,4 @@ C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\roslyn\vbc.exe.config
 C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\roslyn\vbc.rsp
 C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\roslyn\VBCSCompiler.exe
 C:\Users\rouni\Desktop\Jupiter\Jupiter\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\rouni\Desktop\j\Jupiter\Jupiter\obj\Debug\Jupiter.csprojAssemblyReference.cache

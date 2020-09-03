@@ -45,6 +45,9 @@ namespace Jupiter.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [DataType(DataType.Text)]
+        public string UserType { get; set; }
+
         public List<Worker> ShowAllWorkers { get; set; }
         #endregion
         #region Implementations

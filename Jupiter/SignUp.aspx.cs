@@ -45,8 +45,8 @@ namespace Jupiter
                         Session["email"] = worker.Email;
                         Session["password"] = worker.Password;
 
-                        LabelWarningMessage.Text = "Welcome!" + worker.FirstName + "!"+response.ToString();
-                        LabelWarningMessage.ForeColor = System.Drawing.Color.Green;
+                        /*LabelWarningMessage.Text = "Welcome!" + worker.FirstName + "!"+response.ToString();*/
+                     /*   LabelWarningMessage.ForeColor = System.Drawing.Color.Green;*/
 
                         TextBoxPassword.BorderColor = System.Drawing.Color.Empty;
                         TextBoxConfirmPassword.BorderColor = System.Drawing.Color.Empty;
@@ -61,7 +61,7 @@ namespace Jupiter
 
                     
 
-                    /*Response.Redirect("Login.aspx");*/
+                   
                 }
                 else
                 {
@@ -74,7 +74,6 @@ namespace Jupiter
             }
             else
             {
-                LabelWarningMessage.ForeColor = System.Drawing.Color.Empty;
                 TextBoxFirstName.BorderColor = System.Drawing.Color.Red;
                 TextBoxLastName.BorderColor = System.Drawing.Color.Red;
                 TextBoxEmail.BorderColor = System.Drawing.Color.Red;
