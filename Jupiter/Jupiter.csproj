@@ -178,7 +178,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup />
+=======
+  <ItemGroup>
+<<<<<<< HEAD
+    <Folder Include="private\" />
+=======
+    <Folder Include="public\" />
+>>>>>>> 459c957f2c546cf8c1f01c2539f205c34cc42083
+  </ItemGroup>
+>>>>>>> 6c95bc8ac03c0be01d13325a68b84c18a0e11936
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
