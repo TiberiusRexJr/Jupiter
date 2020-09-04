@@ -16,10 +16,10 @@ namespace Jupiter
         {
             if (!IsPostBack)
             {
-                if (Request.Cookies["USR"].Value != null && Request.Cookies["PWD"].Value != null)
+                if (Session["email"] != null && Session["password"]!= null)
                 {
-                    TextBoxEmail.Text = Response.Cookies["USR"].Value;
-                    TextBoxPassword.Attributes["value"] = Response.Cookies["PWD"].Value;
+                    TextBoxEmail.Text = Session["email"].ToString();
+                    TextBoxPassword.Attributes["value"] = Session["password"].ToString(); 
                     CheckBoxRememberPassword.Checked = true;
                 }
             }
@@ -51,18 +51,22 @@ namespace Jupiter
 
                 if (CheckBoxRememberPassword.Checked)
                 {
-                    Request.Cookies["PWD"].Value = worker.Password;
-                    Request.Cookies["PWD"].Expires = DateTime.Now.AddDays(7);
-                    Request.Cookies["USR"].Value = worker.Email;
-                    Request.Cookies["USR"].Expires = DateTime.Now.AddDays(7);
 
-                    
+                    Session["email"] = worker.Email;
+                    Session["password"] = worker.Password;
+                    Session["firstName"] = worker.FirstName;
+                    Session["lastName"] = worker.LastName;
+                    Session["usertype"] = worker.UserType;
+
                 }
                 else
                 {
 
-                    Request.Cookies["USR"].Expires = DateTime.Now.AddDays(-1);
-                    Request.Cookies["PWD"].Expires = DateTime.Now.AddDays(-1);
+                    Session["email"] = null;
+                    Session["password"] = null;
+                    Session["firstName"] = null;
+                    Session["lastName"] = null;
+                    Session["usertype"] = null;
 
                 }
 
