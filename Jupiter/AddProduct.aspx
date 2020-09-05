@@ -32,14 +32,14 @@
         <asp:Label runat="server" ID="label4" CssClass="col-md-2 control-label" Text="WeaponType"></asp:Label>
         <div class="col-md-3">
             <asp:DropDownList ID="Weapons" runat="server"></asp:DropDownList>
-            <asp:requiredfieldvalidator id="validatorforweapontype" runat="server" errormessage="required field" cssclass="text-danger"></asp:requiredfieldvalidator>
+<%--            <asp:requiredfieldvalidator id="validatorforweapontype" runat="server" errormessage="required field" cssclass="text-danger"></asp:requiredfieldvalidator>--%>
         </div>
     </div>
     <div class="form-group">
         <asp:Label runat="server" ID="label1" CssClass="col-md-2 control-label" Text="Size"></asp:Label>
         <div class="col-md-3">
             <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required Field" CssClass="text-danger"></asp:RequiredFieldValidator>
+<%--            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required Field" CssClass="text-danger"></asp:RequiredFieldValidator>--%>
         </div>
     </div>
     </form>

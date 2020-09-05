@@ -18,6 +18,7 @@ namespace Jupiter.DataLayer
         private readonly string _password = "supersix5!";
         private readonly string _database = "ldb";
         private readonly string _procedureName="dbo.WinningAtWalmart_CRUD";
+        private readonly string _procedureExtras = "Extras";
         #endregion
         #region Properties
         public SqlConnection DbConnection { get; set; }
@@ -306,9 +307,30 @@ namespace Jupiter.DataLayer
             #endregion
             throw new NotImplementedException();
         }
-       
 
-
+        public bool UploadProfilePic(string filename,string contentType,byte[] picData,string userEmail)
+        {
+            #region Variables
+            int rowCount = 0;
+            bool UploadStatus = false;
+            SqlCommand cmd = new SqlCommand(_procedureExtras, DbConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            #endregion
+            #region Parameters
+            cmd.Parameters.AddWithValue("@filename", filename);
+            cmd.Parameters.AddWithValue("@contentType", contentType);
+            cmd.Parameters.AddWithValue("@picData", picData);
+            cmd.Parameters.AddWithValue("@userEmail", userEmail);
+            #endregion
+            #region TryExecute
+            rowCount = cmd.ExecuteNonQuery();
+            if (rowCount != 0)
+            {
+                UploadStatus = true;
+            }
+            #endregion
+            return UploadStatus;
+                }
         #endregion
     }
 }

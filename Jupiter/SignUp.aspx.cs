@@ -10,6 +10,11 @@ using Jupiter.DataLayer;
 using Jupiter.Models;
 using System.Drawing;
 
+using System.IO;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
 namespace Jupiter
 {
     public partial class SignUp : System.Web.UI.Page
@@ -24,6 +29,12 @@ namespace Jupiter
         protected void Button_OnClick_Submit(object sender,EventArgs eventArgs)
         {
             bool response;
+            string filename = Path.GetFileName(FileUploadProfilePic.PostedFile.FileName);
+            string contentType = FileUploadProfilePic.PostedFile.ContentType;
+            Stream fs = FileUploadProfilePic.PostedFile.InputStream;
+            BinaryReader br = new BinaryReader(fs);
+            byte[] bytes=br.ReadBytes((Int32)fs.Length);
+
             if (TextBoxFirstName != null && TextBoxLastName != null && TextBoxEmail.Text != null && TextBoxPassword.Text != null && TextBoxConfirmPassword != null)
             {
                 TextBoxFirstName.BorderColor = System.Drawing.Color.Empty;
